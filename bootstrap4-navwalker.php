@@ -404,7 +404,7 @@ if (class_exists('\Walker_Nav_Menu')) {
              *
              * @return array  $classes         a maybe modified array of classnames.
              */
-            private function separate_linkmods_and_icons_from_classes($classes, &$linkmod_classes, &$icon_classes, $depth)
+            protected function separate_linkmods_and_icons_from_classes($classes, &$linkmod_classes, &$icon_classes, $depth)
             {
                 // Loop through $classes array to find linkmod or icon classes.
                 foreach ($classes as $key => $class) {
@@ -447,7 +447,7 @@ if (class_exists('\Walker_Nav_Menu')) {
              *
              * @return string                empty for default, a linkmod type string otherwise.
              */
-            private function get_linkmod_type($linkmod_classes = array())
+            protected function get_linkmod_type($linkmod_classes = array())
             {
                 $linkmod_type = '';
                 // Loop through array of linkmod classes to handle their $atts.
@@ -479,7 +479,7 @@ if (class_exists('\Walker_Nav_Menu')) {
              *
              * @return array                 maybe updated array of attributes for item.
              */
-            private function update_atts_for_linkmod_type($atts = array(), $linkmod_classes = array())
+            protected function update_atts_for_linkmod_type($atts = array(), $linkmod_classes = array())
             {
                 if (! empty($linkmod_classes)) {
                     foreach ($linkmod_classes as $link_class) {
@@ -515,7 +515,7 @@ if (class_exists('\Walker_Nav_Menu')) {
              * @param string $text the string of text to be wrapped in a screen reader class.
              * @return string      the string wrapped in a span with the class.
              */
-            private function wrap_for_screen_reader($text = '')
+            protected function wrap_for_screen_reader($text = '')
             {
                 if ($text) {
                     $text = '<span class="sr-only">' . $text . '</span>';
@@ -533,7 +533,7 @@ if (class_exists('\Walker_Nav_Menu')) {
              *
              * @return string              a string with the openign tag for the element with attribibutes added.
              */
-            private function linkmod_element_open($linkmod_type, $attributes = '')
+            protected function linkmod_element_open($linkmod_type, $attributes = '')
             {
                 $output = '';
                 if ('dropdown-item-text' === $linkmod_type) {
@@ -560,7 +560,7 @@ if (class_exists('\Walker_Nav_Menu')) {
              *
              * @return string              a string with the closing tag for this linkmod type.
              */
-            private function linkmod_element_close($linkmod_type)
+            protected function linkmod_element_close($linkmod_type)
             {
                 $output = '';
                 if ('dropdown-header' === $linkmod_type || 'dropdown-item-text' === $linkmod_type) {
